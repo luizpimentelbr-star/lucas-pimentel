@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lucas Pimentel - Atleta Profissional de Muay Thai</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Roboto:wght@300;400;500&display=swap');
+        
+        * {
+            font-family: 'Roboto', sans-serif;
+        }
+        
+        .heading-font {
+            font-family: 'Oswald', sans-serif;
+        }
+        
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .hero-bg {
+            background: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(139,0,0,0.8) 100%), url('https://picsum.photos/seed/muaythai/1920/1080.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(45deg, #dc2626, #991b1b);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(220, 38, 38, 0.3);
+        }
+        
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+        
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+        }
+        
+        .achievement-card {
+            background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .schedule-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            z-index: 1000;
+            backdrop-filter: blur(5px);
+        }
+        
+        .schedule-modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .animate-float {
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+        
+        .scroll-reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white">
+    <!-- Header -->
+    <header class="fixed top-0 w-full z-50 glass-effect">
+        <nav class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-2">
+                    <i class="fas fa-fist-raised text-red-600 text-2xl"></i>
+                    <h1 class="heading-font text-2xl font-bold">Lucas Pimentel</h1>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="hover:text-red-500 transition">Início</a>
+                    <a href="#about" class="hover:text-red-500 transition">Sobre</a>
+                    <a href="#achievements" class="hover:text-red-500 transition">Conquistas</a>
+                    <a href="#services" class="hover:text-red-500 transition">Serviços</a>
+                    <a href="#contact" class="hover:text-red-500 transition">Contato</a>
+                </div>
+                <button class="md:hidden" id="mobile-menu-btn">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden glass-effect">
+            <div class="px-6 py-4 space-y-4">
+                <a href="#home" class="block hover:text-red-500 transition">Início</a>
+                <a href="#about" class="block hover:text-red-500 transition">Sobre</a>
+                <a href="#achievements" class="block hover:text-red-500 transition">Conquistas</a>
+                <a href="#services" class="block hover:text-red-500 transition">Serviços</a>
+                <a href="#contact" class="block hover:text-red-500 transition">Contato</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-bg min-h-screen flex items-center justify-center relative">
+        <div class="container mx-auto px-6 text-center">
+            <div class="scroll-reveal">
+                <h1 class="heading-font text-5xl md:text-7xl font-bold mb-4 animate-float">Lucas Pimentel</h1>
+                <p class="text-xl md:text-2xl mb-8 text-gray-300">
+                    Instrutor de Muay Thai
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <button onclick="openScheduleModal()" class="btn-primary px-8 py-4 rounded-full text-lg font-semibold">
+                        <i class="fas fa-calendar-check mr-2"></i>Agendar Aula
+                    </button>
+                    <a href="#about" class="glass-effect px-8 py-4 rounded-full text-lg font-semibold hover:bg-white hover:bg-opacity-20 transition">
+                        <i class="fas fa-info-circle mr-2"></i>Saiba Mais
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <i class="fas fa-chevron-down text-3xl"></i>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-gray-800">
+        <div class="container mx-auto px-6">
+            <h2 class="heading-font text-4xl font-bold text-center mb-12 scroll-reveal">Sobre Mim</h2>
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="scroll-reveal">
+                    <img src="https://picsum.photos/seed/athlete/600/600.jpg" alt="João Silva" class="rounded-lg shadow-2xl">
+                </div>
+                <div class="scroll-reveal">
+                    <h3 class="heading-font text-2xl font-semibold mb-4">&nbsp;Dedicação ao Muay Thai</h3>
+                    <p class="text-gray-300 mb-6">
+                        Comecei minha jornada no Muay Thai aos 16 anos e desde então me dediquei intensamente para me tornar um dos melhores atletas do Brasil. Agora, compartilho meu conhecimento com novos praticantes.
+                    </p>
+                    <div class="grid grid-cols-2 gap-4 mb-6">
+                        <div class="glass-effect p-4 rounded-lg text-center">
+                            <i class="fas fa-trophy text-red-500 text-3xl mb-2"></i>
+                            <h4 class="font-semibold">Títulos</h4>
+                            <p class="text-sm text-gray-400">Não luto por títulos</p>
+                        </div>
+                        <div class="glass-effect p-4 rounded-lg text-center">
+                            <i class="fas fa-users text-red-500 text-3xl mb-2"></i>
+                            <h4 class="font-semibold">&nbsp;Alunos</h4>
+                            <p class="text-sm text-gray-400">Minha total DEDICAÇÃO</p>
+                        </div>
+                    </div>
+                    <button onclick="openScheduleModal()" class="btn-primary px-6 py-3 rounded-full">
+                        <i class="fas fa-handshake mr-2"></i>Treine Comigo
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements Section -->
+    <section id="achievements" class="py-20 bg-gray-900">
+        <div class="container mx-auto px-6">
+            <h2 class="heading-font text-4xl font-bold text-center mb-12 scroll-reveal">Conquistas</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="achievement-card p-6 rounded-lg card-hover scroll-reveal">
+                    <div class="text-center mb-4">
+                        <i class="fas fa-medal text-yellow-500 text-5xl"></i>
+                    </div>
+                    <h3 class="heading-font text-xl font-semibold mb-2">Faixa Preta</h3>
+                    <p class="text-gray-400">Após árdua batalha e sacrifícios - CONQUITEI!</p>
+                </div>
+                <div class="achievement-card p-6 rounded-lg card-hover scroll-reveal">
+                    <div class="text-center mb-4">
+                        <i class="fas fa-globe text-blue-500 text-5xl"></i>
+                    </div>
+                    <h3 class="heading-font text-xl font-semibold mb-2">Experiência</h3>
+                    <p class="text-gray-400">Trabalhando em diversas ACADEMIAS DE GOIÂNIA</p>
+                </div>
+                <div class="achievement-card p-6 rounded-lg card-hover scroll-reveal">
+                    <div class="text-center mb-4">
+                        <i class="fas fa-graduation-cap text-green-500 text-5xl"></i>
+                    </div>
+                    <h3 class="heading-font text-xl font-semibold mb-2">Instrutor Certificado</h3>
+                    <p class="text-gray-400">Certificado pela Federação Brasileira de Muay Thai</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-gray-800">
+        <div class="container mx-auto px-6">
+            <h2 class="heading-font text-4xl font-bold text-center mb-12 scroll-reveal">Serviços</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="glass-effect p-8 rounded-lg card-hover scroll-reveal">
+                    <i class="fas fa-child text-red-500 text-4xl mb-4"></i>
+                    <h3 class="heading-font text-2xl font-semibold mb-4">Aulas Iniciantes</h3>
+                    <p class="text-gray-300 mb-6">Perfeito para quem está começando. Aulas focadas em fundamentos básicos e condicionamento físico.</p>
+                    <ul class="space-y-2 text-sm text-gray-400 mb-6">
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Técnicas básicas</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Condicionamento físico</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Defesa pessoal</li>
+                    </ul>
+                    <button onclick="openScheduleModal()" class="btn-primary w-full py-3 rounded-full">
+                        Agendar Aula
+                    </button>
+                </div>
+                <div class="glass-effect p-8 rounded-lg card-hover scroll-reveal">
+                    <i class="fas fa-fire text-orange-500 text-4xl mb-4"></i>
+                    <h3 class="heading-font text-2xl font-semibold mb-4">Treino Avançado</h3>
+                    <p class="text-gray-300 mb-6">Para atletas experientes. Treinos intensos focados em competição e aperfeiçoamento técnico.</p>
+                    <ul class="space-y-2 text-sm text-gray-400 mb-6">
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Estratégias de luta</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Sparring controlado</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Preparação para competições<div><br></div></li>
+                    </ul>
+                    <button onclick="openScheduleModal()" class="btn-primary w-full py-3 rounded-full">
+                        Agendar Treino
+                    </button>
+                </div>
+                <div class="glass-effect p-8 rounded-lg card-hover scroll-reveal">
+                    <i class="fas fa-user-tie text-purple-500 text-4xl mb-4"></i>
+                    <h3 class="heading-font text-2xl font-semibold mb-4">Aula Particular</h3>
+                    <p class="text-gray-300 mb-6">Atendimento personalizado com foco nas suas necessidades específicas e objetivos.</p>
+                    <ul class="space-y-2 text-sm text-gray-400 mb-6">
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Atendimento 1:1</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Plano de treino personalizado</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Acompanhamento nutricional<div><br></div></li>
+                    </ul>
+                    <button onclick="openScheduleModal()" class="btn-primary w-full py-3 rounded-full">
+                        Agendar Particular
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gray-900">
+        <div class="container mx-auto px-6">
+            <h2 class="heading-font text-4xl font-bold text-center mb-12 scroll-reveal">Contato</h2>
+            <div class="max-w-4xl mx-auto">
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="scroll-reveal">
+                        <h3 class="heading-font text-2xl font-semibold mb-6">Informações de Contato</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-center space-x-4">
+                                <i class="fas fa-map-marker-alt text-red-500 text-xl"></i>
+                                <div>
+                                    <p class="font-semibold">Academia</p>
+                                    <p class="text-gray-400">Rua Perimetral Dois, Qd7 Lt14 - Sonho Verde - Goiânia/GO</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-4">
+                                <i class="fas fa-phone text-red-500 text-xl"></i>
+                                <div>
+                                    <p class="font-semibold">Telefone</p>
+                                    <p class="text-gray-400">(62) 6000-6236</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-4">
+                                <i class="fas fa-envelope text-red-500 text-xl"></i>
+                                <div>
+                                    <p class="font-semibold">Email</p>
+                                    <p class="text-gray-400">lucasmateus2020@gmail.com</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-8">
+                            <h4 class="font-semibold mb-4">Siga nas Redes Sociais</h4>
+                            <div class="flex space-x-4">
+                                <a href="#" class="glass-effect p-3 rounded-full hover:bg-red-600 transition">
+                                    <i class="fab fa-instagram text-xl"></i>
+                                </a>
+                                <a href="#" class="glass-effect p-3 rounded-full hover:bg-red-600 transition">
+                                    <i class="fab fa-facebook text-xl"></i>
+                                </a>
+                                <a href="#" class="glass-effect p-3 rounded-full hover:bg-red-600 transition">
+                                    <i class="fab fa-youtube text-xl"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="scroll-reveal">
+                        <form class="glass-effect p-8 rounded-lg">
+                            <h3 class="heading-font text-2xl font-semibold mb-6">Envie uma Mensagem</h3>
+                            <div class="space-y-4">
+                                <input type="text" placeholder="Seu Nome" class="w-full px-4 py-3 bg-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500">
+                                <input type="email" placeholder="Seu Email" class="w-full px-4 py-3 bg-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500">
+                                <textarea placeholder="Sua Mensagem" rows="4" class="w-full px-4 py-3 bg-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500"></textarea>
+                                <button type="submit" class="btn-primary w-full py-3 rounded-full">
+                                    <i class="fas fa-paper-plane mr-2"></i>Enviar Mensagem
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black py-8">
+        <div class="container mx-auto px-6 text-center">
+            <p class="text-gray-400">© 2025 Lucas Matheus - Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Schedule Modal -->
+    <div id="scheduleModal" class="schedule-modal">
+        <div class="glass-effect p-8 rounded-lg max-w-md w-full mx-4">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="heading-font text-2xl font-bold">Agendar Aula</h3>
+                <button onclick="closeScheduleModal()" class="text-gray-400 hover:text-white">
+                    <i class="fas fa-times text-2xl"></i>
+                </button>
+            </div>
+            <form id="scheduleForm">
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Tipo de Aula</label>
+                        <select class="w-full px-4 py-3 bg-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500">
+                            <option>Aula Iniciante</option>
+                            <option>Treino Avançado</option>
+                            <option>Aula Particular</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Data</label>
+                        <input type="date" class="w-full px-4 py-3 bg-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Horário</label>
+                        <select class="w-full px-4 py-3 bg-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500">
+                            <option>07:00 - 08:00</option>
+                            <option>09:00 - 10:00</option>
+                            <option>14:00 - 15:00</option>
+                            <option>16:00 - 17:00</option>
+                            <option>18:00 - 19:00</option>
+                            <option>20:00 - 21:00</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Seu Nome</label>
+                        <input type="text" placeholder="Nome completo" class="w-full px-4 py-3 bg-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Telefone</label>
+                        <input type="tel" placeholder="(11) 99999-9999" class="w-full px-4 py-3 bg-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Email</label>
+                        <input type="email" placeholder="seu@email.com" class="w-full px-4 py-3 bg-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500">
+                    </div>
+                    <button type="submit" class="btn-primary w-full py-3 rounded-full">
+                        <i class="fas fa-calendar-check mr-2"></i>Confirmar Agendamento
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Success Message -->
+    <div id="successMessage" class="fixed top-20 right-4 glass-effect p-4 rounded-lg transform translate-x-full transition-transform duration-300">
+        <div class="flex items-center space-x-3">
+            <i class="fas fa-check-circle text-green-500 text-2xl"></i>
+            <div>
+                <p class="font-semibold">Agendamento Confirmado!</p>
+                <p class="text-sm text-gray-300">Entraremos em contato em breve.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when clicking on links
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Schedule Modal Functions
+        function openScheduleModal() {
+            document.getElementById('scheduleModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeScheduleModal() {
+            document.getElementById('scheduleModal').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('scheduleModal').addEventListener('click', (e) => {
+            if (e.target.id === 'scheduleModal') {
+                closeScheduleModal();
+            }
+        });
+
+        // Schedule Form Submission
+        document.getElementById('scheduleForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            closeScheduleModal();
+            showSuccessMessage();
+            e.target.reset();
+        });
+
+        // Show Success Message
+        function showSuccessMessage() {
+            const message = document.getElementById('successMessage');
+            message.style.transform = 'translateX(0)';
+            setTimeout(() => {
+                message.style.transform = 'translateX(100%)';
+            }, 3000);
+        }
+
+        // Scroll Reveal Animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.scroll-reveal').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Header scroll effect
+        let lastScroll = 0;
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            const header = document.querySelector('header');
+            
+            if (currentScroll > 100) {
+                header.style.background = 'rgba(0, 0, 0, 0.95)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.1)';
+            }
+            
+            lastScroll = currentScroll;
+        });
+    </script>
+
+</body></html>
