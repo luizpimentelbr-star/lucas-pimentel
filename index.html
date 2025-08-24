@@ -24,7 +24,7 @@
         }
         
         .hero-bg {
-            background: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(139,0,0,0.8) 100%), url('vaca-brava.jpeg');
+            background: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(139,0,0,0.8) 100%), url('vaca-brava.jpg');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -150,7 +150,7 @@
             <div class="scroll-reveal">
                 <h1 class="heading-font text-5xl md:text-7xl font-bold mb-4 animate-float">Lucas Pimentel</h1>
                 <p class="text-xl md:text-2xl mb-8 text-gray-300">
-                    Instrutor de Muay Thai
+                    Professor de Muay Thai
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center">
                     <button onclick="openScheduleModal()" class="btn-primary px-8 py-4 rounded-full text-lg font-semibold">
@@ -168,30 +168,23 @@
     </section>
 
     <!-- About Section -->
-    <section id="about" class="py-20 bg-gray-800">
+    <section id="about" class="py-20 bg-black">
         <div class="container mx-auto px-6">
-            <h2 class="heading-font text-4xl font-bold text-center mb-12 scroll-reveal">Sobre Mim</h2>
+            <h2 class="heading-font text-4xl font-bold text-center mb-12 scroll-reveal"></h2>
             <div class="grid md:grid-cols-2 gap-12 items-center">
                 <div class="scroll-reveal">
-                    <img src="https://picsum.photos/seed/athlete/600/600.jpg" alt="João Silva" class="rounded-lg shadow-2xl">
+                    <img src="cobra.jpg" alt="Cobra" class="rounded-lg shadow-2xl">
                 </div>
                 <div class="scroll-reveal">
-                    <h3 class="heading-font text-2xl font-semibold mb-4">&nbsp;Dedicação ao Muay Thai</h3>
+                    <h3 class="heading-font text-2xl font-semibold mb-4 text-white">&nbsp;Um Pouco de História</h3>
                     <p class="text-gray-300 mb-6">
-                        Comecei minha jornada no Muay Thai aos 16 anos e desde então me dediquei intensamente para me tornar um dos melhores atletas do Brasil. Agora, compartilho meu conhecimento com novos praticantes.
+                        Sou Lucas, Personal Fighter, 26 anos, apaixonado por superação e movimento. Desde 2019, sou formado em Muay Thai com o Grau Preto – Kru, reconhecido pela FEGOM, e venho da respeitada equipe Naja, sob a orientação do Mestre Luiz Fernando.
+
+Minha trajetória é marcada por disciplina, resiliência e dedicação total ao que faço. Enfrentei desafios, ultrapassei limites e transformei cada obstáculo em combustível para crescer — dentro e fora do tatame. Hoje, levo essa energia para cada aluno, oferecendo treinos personalizados que respeitam seu ritmo e objetivos, mas sempre com foco em evolução.
+
+Seja para condicionamento físico, defesa pessoal ou performance de alto nível, meu compromisso é entregar mais do que um treino: é proporcionar uma experiência de transformação. Aqui, você não apenas aprende a lutar — você aprende a vencer.
                     </p>
-                    <div class="grid grid-cols-2 gap-4 mb-6">
-                        <div class="glass-effect p-4 rounded-lg text-center">
-                            <i class="fas fa-trophy text-red-500 text-3xl mb-2"></i>
-                            <h4 class="font-semibold">Títulos</h4>
-                            <p class="text-sm text-gray-400">Não luto por títulos</p>
-                        </div>
-                        <div class="glass-effect p-4 rounded-lg text-center">
-                            <i class="fas fa-users text-red-500 text-3xl mb-2"></i>
-                            <h4 class="font-semibold">&nbsp;Alunos</h4>
-                            <p class="text-sm text-gray-400">Minha total DEDICAÇÃO</p>
-                        </div>
-                    </div>
+                    
                     <button onclick="openScheduleModal()" class="btn-primary px-6 py-3 rounded-full">
                         <i class="fas fa-handshake mr-2"></i>Treine Comigo
                     </button>
@@ -201,7 +194,7 @@
     </section>
 
     <!-- Achievements Section -->
-    <section id="achievements" class="py-20 bg-gray-900">
+    <section id="achievements" class="min-h-screen py-20 bg-gray-900 flex items-center">
         <div class="container mx-auto px-6">
             <h2 class="heading-font text-4xl font-bold text-center mb-12 scroll-reveal">Conquistas</h2>
             <div class="grid md:grid-cols-3 gap-8">
@@ -231,7 +224,7 @@
     </section>
 
     <!-- Services Section -->
-    <section id="services" class="py-20 bg-gray-800">
+    <section id="services" class="min-h-screen py-20 bg-gray-900 flex items-center">
         <div class="container mx-auto px-6">
             <h2 class="heading-font text-4xl font-bold text-center mb-12 scroll-reveal">Serviços</h2>
             <div class="grid md:grid-cols-3 gap-8">
@@ -243,7 +236,7 @@
                         <li><i class="fas fa-check text-green-500 mr-2"></i>Técnicas básicas</li>
                         <li><i class="fas fa-check text-green-500 mr-2"></i>Condicionamento físico</li>
                         <li><i class="fas fa-check text-green-500 mr-2"></i>Defesa pessoal</li>
-                    </ul>
+                    </ul><br>
                     <button onclick="openScheduleModal()" class="btn-primary w-full py-3 rounded-full">
                         Agendar Aula
                     </button>
@@ -268,8 +261,8 @@
                     <ul class="space-y-2 text-sm text-gray-400 mb-6">
                         <li><i class="fas fa-check text-green-500 mr-2"></i>Atendimento 1:1</li>
                         <li><i class="fas fa-check text-green-500 mr-2"></i>Plano de treino personalizado</li>
-                        <li><i class="fas fa-check text-green-500 mr-2"></i>Acompanhamento nutricional<div><br></div></li>
-                    </ul>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Treino Objetivo<div><br></div></li>
+                    </ul><br>
                     <button onclick="openScheduleModal()" class="btn-primary w-full py-3 rounded-full">
                         Agendar Particular
                     </button>
@@ -318,17 +311,17 @@
                         </div>
                     </div>
                     <div class="scroll-reveal">
-                        <form class="glass-effect p-8 rounded-lg">
-                            <h3 class="heading-font text-2xl font-semibold mb-6">Envie uma Mensagem</h3>
+                        <form class="glass-effect p-8 rounded-lg" onsubmit="sendToWhatsApp(event)">
+                            <h3 class="heading-font text-2xl font-semibold mb-6">Mensagem Via Whatsapp</h3>
                             <div class="space-y-4">
-                                <input type="text" placeholder="Seu Nome" class="w-full px-4 py-3 bg-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500">
-                                <input type="email" placeholder="Seu Email" class="w-full px-4 py-3 bg-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500">
-                                <textarea placeholder="Sua Mensagem" rows="4" class="w-full px-4 py-3 bg-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500"></textarea>
+                                <input type="text" id="nome" placeholder="Seu Nome" class="w-full px-4 py-3 bg-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500" required>
+                                <input type="email" id="email" placeholder="Seu Email" class="w-full px-4 py-3 bg-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500" required>
+                                <textarea id="mensagem" placeholder="Sua Mensagem" rows="4" class="w-full px-4 py-3 bg-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500" required></textarea>
                                 <button type="submit" class="btn-primary w-full py-3 rounded-full">
-                                    <i class="fas fa-paper-plane mr-2"></i>Enviar Mensagem
+                                <i class="fas fa-paper-plane mr-2"></i>Enviar Mensagem
                                 </button>
                             </div>
-                        </form>
+                         </form>
                     </div>
                 </div>
             </div>
@@ -343,71 +336,124 @@
     </footer>
 
     <!-- Schedule Modal -->
-    <div id="scheduleModal" class="schedule-modal">
-        <div class="glass-effect p-8 rounded-lg max-w-md w-full mx-4">
-            <div class="flex justify-between items-center mb-6">
-                <h3 class="heading-font text-2xl font-bold">Agendar Aula</h3>
-                <button onclick="closeScheduleModal()" class="text-gray-400 hover:text-white">
-                    <i class="fas fa-times text-2xl"></i>
-                </button>
-            </div>
-            <form id="scheduleForm">
-                <div class="space-y-4">
-                    <div>
-                        <label class="block text-sm font-medium mb-2">Tipo de Aula</label>
-                        <select class="w-full px-4 py-3 bg-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500">
-                            <option>Aula Iniciante</option>
-                            <option>Treino Avançado</option>
-                            <option>Aula Particular</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium mb-2">Data</label>
-                        <input type="date" class="w-full px-4 py-3 bg-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500">
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium mb-2">Período Pretendido</label>
-                        <select class="w-full px-4 py-3 bg-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500">
-                            <option>07:00 - 08:00</option>
-                            <option>09:00 - 10:00</option>
-                            <option>14:00 - 15:00</option>
-                            <option>16:00 - 17:00</option>
-                            <option>18:00 - 19:00</option>
-                            <option>20:00 - 21:00</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium mb-2">Seu Nome</label>
-                        <input type="text" placeholder="Nome completo" class="w-full px-4 py-3 bg-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500">
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium mb-2">Telefone</label>
-                        <input type="tel" placeholder="(11) 99999-9999" class="w-full px-4 py-3 bg-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500">
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium mb-2">Email</label>
-                        <input type="email" placeholder="seu@email.com" class="w-full px-4 py-3 bg-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500">
-                    </div>
-                    <button type="submit" class="btn-primary w-full py-3 rounded-full">
-                        <i class="fas fa-calendar-check mr-2"></i>Confirmar Agendamento
-                    </button>
-                </div>
-            </form>
-        </div>
+<div id="scheduleModal" class="schedule-modal">
+  <div class="glass-effect p-6 rounded-lg max-w-3xl w-full mx-auto">
+    <div class="flex justify-between items-center mb-6">
+      <h3 class="heading-font text-2xl font-bold">Agendar Aula</h3>
+      <button onclick="closeScheduleModal()" class="text-gray-400 hover:text-white">
+        <i class="fas fa-times text-2xl"></i>
+      </button>
     </div>
+    <form id="scheduleForm">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div>
+          <label class="block text-sm font-medium mb-2">Tipo de Aula</label>
+          <select class="w-full px-4 py-3 bg-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500">
+            <option>Aula Iniciante</option>
+            <option>Treino Avançado</option>
+            <option>Aula Particular</option>
+          </select>
+        </div>
+        <div>
+          <label class="block text-sm font-medium mb-2">Data</label>
+          <input type="date" class="w-full px-4 py-3 bg-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500">
+        </div>
+        <div>
+          <label class="block text-sm font-medium mb-2">Período Pretendido</label>
+          <select class="w-full px-4 py-3 bg-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500">
+            <option>07:00 - 08:00</option>
+            <option>09:00 - 10:00</option>
+            <option>14:00 - 15:00</option>
+            <option>16:00 - 17:00</option>
+            <option>18:00 - 19:00</option>
+            <option>20:00 - 21:00</option>
+          </select>
+        </div>
+        <div>
+          <label class="block text-sm font-medium mb-2">Escolha o Local</label>
+          <select class="w-full px-4 py-3 bg-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500">
+            <option>Parque Vaca Brava</option>
+            <option>Parque Flamboyant</option>
+            <option>Lago das Rosas</option>
+          </select>
+        </div>
+        <div>
+          <label class="block text-sm font-medium mb-2">Seu Nome</label>
+          <input type="text" placeholder="Nome completo" class="w-full px-4 py-3 bg-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500">
+        </div>
+        <div>
+          <label class="block text-sm font-medium mb-2">Telefone</label>
+          <input type="tel" placeholder="(11) 99999-9999" class="w-full px-4 py-3 bg-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500">
+        </div>
+        <div class="md:col-span-2">
+          <label class="block text-sm font-medium mb-2">Email</label>
+          <input type="email" placeholder="seu@email.com" class="w-full px-4 py-3 bg-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500">
+        </div>
+        <div class="md:col-span-2">
+          <button type="submit" class="btn-primary w-full py-3 rounded-full">
+            <i class="fas fa-calendar-check mr-2"></i>Confirmar Agendamento
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
 
-    <!-- Success Message -->
-    <div id="successMessage" class="fixed top-20 right-4 glass-effect p-4 rounded-lg transform translate-x-full transition-transform duration-300">
-        <div class="flex items-center space-x-3">
-            <i class="fas fa-check-circle text-green-500 text-2xl"></i>
-            <div>
-                <p class="font-semibold">Agendamento Solicitado!</p>
-                <p class="text-sm text-gray-300">Entraremos em contato em breve para definir seu pedido.</p>
-            </div>
-        </div>
+<!-- Success Message -->
+<div id="successMessage" class="fixed top-20 right-4 glass-effect p-4 rounded-lg transform translate-x-full transition-transform duration-300">
+  <div class="flex items-center space-x-3">
+    <i class="fas fa-check-circle text-green-500 text-2xl"></i>
+    <div>
+      <p class="font-semibold">Agendamento Solicitado!</p>
+      <p class="text-sm text-gray-300">Entraremos em contato em breve para definir seu pedido.</p>
     </div>
+  </div>
+</div>
+
+<script>
+  function enviarParaWhatsApp() {
+    const tipo = document.querySelector('select:nth-of-type(1)').value;
+    const data = document.querySelector('input[type="date"]').value;
+    const periodo = document.querySelector('select:nth-of-type(2)').value;
+    const local = document.querySelector('select:nth-of-type(3)').value;
+    const nome = document.querySelector('input[type="text"]').value;
+    const telefone = document.querySelector('input[type="tel"]').value;
+    const email = document.querySelector('input[type="email"]').value;
+
+    const mensagem = `*Agendamento de Aula*%0A
+*Tipo:* ${tipo}%0A
+*Data:* ${data}%0A
+*Horário:* ${periodo}%0A
+*Local:* ${local}%0A
+*Nome:* ${nome}%0A
+*Telefone:* ${telefone}%0A
+*Email:* ${email}`;
+
+    const numeroDestino = "5585562983151410"; // Substitua pelo número do WhatsApp que vai receber
+    const url = `https://wa.me/${numeroDestino}?text=${mensagem}`;
+
+    window.open(url, '_blank');
+  }
+</script>
 
     <script>
+
+        // Mensagem via Whatsapp
+        function sendToWhatsApp(event) {
+        event.preventDefault(); // Evita o envio tradicional do formulário
+
+        const nome = document.getElementById('nome').value;
+        const email = document.getElementById('email').value;
+        const mensagem = document.getElementById('mensagem').value;
+
+        const numero = '5562983151410'; // Substitua pelo número desejado com DDI e DDD (ex: 55 + 62 + número)
+        const texto = `Olá, me chamo ${nome}.\nEmail: ${email}\nMensagem: ${mensagem}`;
+        const url = `https://wa.me/${numero}?text=${encodeURIComponent(texto)}`;
+
+        window.open(url, '_blank');
+        }
+
+ 
         // Mobile Menu Toggle
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
